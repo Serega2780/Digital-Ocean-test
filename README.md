@@ -14,3 +14,6 @@ ansible_python_interpreter = /usr/bin/python3
 А также настройки firewall. Разрешен SSH отовсюду (не особо правильно, но все-таки песочница), а также открывает 27017 порт для Mongo. Также отовсюду. Также не очень красиво. И закрывает все остальные порты.
 
 Mongo_master.yml выполняет инициализацию - rs.initiate(). И добавляет две secondary replicas - mongo-test2, mongo-test3.
+
+ufw_status.log - вывод команды ufw status.
+rs_status.log - вывод команды rs.status().
