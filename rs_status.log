@@ -1,0 +1,116 @@
+rs0:PRIMARY> rs.status()
+{
+	"set" : "rs0",
+	"date" : ISODate("2019-05-17T18:51:29.298Z"),
+	"myState" : 1,
+	"term" : NumberLong(3),
+	"syncingTo" : "",
+	"syncSourceHost" : "",
+	"syncSourceId" : -1,
+	"heartbeatIntervalMillis" : NumberLong(2000),
+	"optimes" : {
+		"lastCommittedOpTime" : {
+			"ts" : Timestamp(1558119081, 1),
+			"t" : NumberLong(3)
+		},
+		"readConcernMajorityOpTime" : {
+			"ts" : Timestamp(1558119081, 1),
+			"t" : NumberLong(3)
+		},
+		"appliedOpTime" : {
+			"ts" : Timestamp(1558119081, 1),
+			"t" : NumberLong(3)
+		},
+		"durableOpTime" : {
+			"ts" : Timestamp(1558119081, 1),
+			"t" : NumberLong(3)
+		}
+	},
+	"members" : [
+		{
+			"_id" : 0,
+			"name" : "mongo-test1:27017",
+			"health" : 1,
+			"state" : 1,
+			"stateStr" : "PRIMARY",
+			"uptime" : 72,
+			"optime" : {
+				"ts" : Timestamp(1558119081, 1),
+				"t" : NumberLong(3)
+			},
+			"optimeDate" : ISODate("2019-05-17T18:51:21Z"),
+			"syncingTo" : "",
+			"syncSourceHost" : "",
+			"syncSourceId" : -1,
+			"infoMessage" : "could not find member to sync from",
+			"electionTime" : Timestamp(1558119019, 1),
+			"electionDate" : ISODate("2019-05-17T18:50:19Z"),
+			"configVersion" : 3,
+			"self" : true,
+			"lastHeartbeatMessage" : ""
+		},
+		{
+			"_id" : 1,
+			"name" : "mongo-test2:27017",
+			"health" : 1,
+			"state" : 2,
+			"stateStr" : "SECONDARY",
+			"uptime" : 20,
+			"optime" : {
+				"ts" : Timestamp(1558119081, 1),
+				"t" : NumberLong(3)
+			},
+			"optimeDurable" : {
+				"ts" : Timestamp(1558119081, 1),
+				"t" : NumberLong(3)
+			},
+			"optimeDate" : ISODate("2019-05-17T18:51:21Z"),
+			"optimeDurableDate" : ISODate("2019-05-17T18:51:21Z"),
+			"lastHeartbeat" : ISODate("2019-05-17T18:51:29.076Z"),
+			"lastHeartbeatRecv" : ISODate("2019-05-17T18:51:27.588Z"),
+			"pingMs" : NumberLong(0),
+			"lastHeartbeatMessage" : "",
+			"syncingTo" : "mongo-test1:27017",
+			"syncSourceHost" : "mongo-test1:27017",
+			"syncSourceId" : 0,
+			"infoMessage" : "",
+			"configVersion" : 3
+		},
+		{
+			"_id" : 2,
+			"name" : "mongo-test3:27017",
+			"health" : 1,
+			"state" : 2,
+			"stateStr" : "SECONDARY",
+			"uptime" : 20,
+			"optime" : {
+				"ts" : Timestamp(1558119081, 1),
+				"t" : NumberLong(3)
+			},
+			"optimeDurable" : {
+				"ts" : Timestamp(1558119081, 1),
+				"t" : NumberLong(3)
+			},
+			"optimeDate" : ISODate("2019-05-17T18:51:21Z"),
+			"optimeDurableDate" : ISODate("2019-05-17T18:51:21Z"),
+			"lastHeartbeat" : ISODate("2019-05-17T18:51:29.076Z"),
+			"lastHeartbeatRecv" : ISODate("2019-05-17T18:51:27.608Z"),
+			"pingMs" : NumberLong(0),
+			"lastHeartbeatMessage" : "",
+			"syncingTo" : "mongo-test1:27017",
+			"syncSourceHost" : "mongo-test1:27017",
+			"syncSourceId" : 0,
+			"infoMessage" : "",
+			"configVersion" : 3
+		}
+	],
+	"ok" : 1,
+	"operationTime" : Timestamp(1558119081, 1),
+	"$clusterTime" : {
+		"clusterTime" : Timestamp(1558119081, 1),
+		"signature" : {
+			"hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+			"keyId" : NumberLong(0)
+		}
+	}
+}

@@ -1,0 +1,16 @@
+[all:vars]
+ansible_python_interpreter = /usr/bin/python3
+[mongo]
+mongo-test1 ansible_host=138.68.88.100 ansible_ssh_user=root
+mongo-test2 ansible_host=138.68.88.9 ansible_ssh_user=root
+mongo-test3 ansible_host=138.68.88.89 ansible_ssh_user=root
+[mongo_master]
+mongo-test1
+
+[mongo_replicas]
+mongo-test2
+mongo-test3
+
+[mongo:children]
+mongo_master
+mongo_replicas

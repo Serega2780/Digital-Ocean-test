@@ -1,0 +1,52 @@
+- name: Install MongoDB
+  hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Change /etc/hosts
+    copy:
+      src: ./etc/hosts
+      dest: /etc/hosts  
+  - name: Add an apt key by id from a keyserver
+    apt_key:
+      keyserver: hkp://keyserver.ubuntu.com:80
+      id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+      state: present
+    tags: install
+  - name: Add APT repository
+    apt_repository:
+      repo: deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse
+      filename: /etc/apt/sources.list.d/mongodb-org-3.6.list
+      update_cache: yes
+      state: present
+    tags: install
+  - name: Install the package "mongodb-org"
+    apt:
+      name: mongodb-org
+      force: yes
+      state: present
+    tags: install
+  - name: Change mongo config file
+    template:
+      src: templates/mongod.conf.j2
+      dest: /etc/mongod.conf
+      mode: 0644
+  - name: enable/start mongod
+    systemd:
+      name: mongod
+      enabled: yes
+      state: restarted
+    tags: install
+  - name: UFW - Allow SSH connections
+    ufw:
+      rule: allow
+      name: OpenSSH
+  - name: UFW - Allow MongoDB connections
+    ufw:
+      rule: allow
+      to_port: 27017
+  - name: UFW - Deny all other incoming traffic by default
+    ufw:
+      state: enabled
+      policy: deny
+      direction: incoming  

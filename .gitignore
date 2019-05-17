@@ -1,0 +1,9 @@
+main*
+*.retry
+*.tfstate
+.terraform
+vendor
+tasks
+roles
+host_vars
+group_vars

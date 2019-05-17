@@ -1,0 +1,9 @@
+root@mongo-test1:~# ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere                  
+27017                      ALLOW       Anywhere                  
+OpenSSH (v6)               ALLOW       Anywhere (v6)             
+27017 (v6)                 ALLOW       Anywhere (v6)     

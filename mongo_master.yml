@@ -1,0 +1,16 @@
+- name: Mongo_master configuration
+  hosts: mongo-test1
+  become: false
+  gather_facts: no
+  tasks:
+  
+  - name: mongodb - initiate replica set
+    command: /usr/bin/mongo --quiet --eval 'rs.initiate()'
+    register: rs_result
+  - name: mongodb - wait for replica set to initiate
+    pause: seconds=15
+    when: rs_result.changed
+  - name: mongodb - add secondary 1
+    command: /usr/bin/mongo --quiet --eval 'rs.add("mongo-test2")'
+  - name: mongodb - add secondary 2
+    command: /usr/bin/mongo --quiet --eval 'rs.add("mongo-test3")'  
